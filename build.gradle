@@ -1,6 +1,7 @@
 buildscript {
     repositories {
-        mavenCentral()
+        //mavenCentral()
+        mavenLocal()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -102,10 +103,10 @@ dependencies {
     
     provided "tconstruct:TConstruct:1.7.10-1.7.0.build734:deobf"
     
-    provided group: 'cofh', name: 'CoFHCore', version: '[1.7.10]3.0.3B2-294-dev', ext: 'jar'
+    /*provided group: 'cofh', name: 'CoFHCore', version: '[1.7.10]3.0.3B2-294-dev', ext: 'jar'
     provided group: 'thaumcraft', name: 'Thaumcraft', version: '1.7.10-4.2.3.5', ext: 'jar'
     provided group: 'ComputerCraft', name: 'ComputerCraft', version: '1.74', ext: 'jar'
-    provided group: 'AppleMilkTea2', name: 'AppleMilkTea2', version: '1.7.10_2.9c', ext: 'jar'
+    provided group: 'AppleMilkTea2', name: 'AppleMilkTea2', version: '1.7.10_2.9c', ext: 'jar'*/
     
     provided "net.industrial-craft:industrialcraft-2:2.2.780-experimental:api"
 

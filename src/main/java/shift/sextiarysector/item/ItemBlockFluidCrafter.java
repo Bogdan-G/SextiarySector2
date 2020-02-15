@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import shift.sextiarysector.tileentity.TileEntityFluidCrafter;
@@ -45,11 +46,15 @@ public class ItemBlockFluidCrafter extends ItemBlock {
 
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List p_150895_3_) {
-        p_150895_3_.add(new ItemStack(p_150895_1_, 1, 0));
+        if (p_150895_3_!=null) {
+        if (p_150895_1_!=null) p_150895_3_.add(new ItemStack(p_150895_1_, 1, 0));
 
         for (int i = 1; i <= FluidRegistry.getRegisteredFluids().size(); i++) {
+            if (p_150895_1_!=null) {
             ItemStack item = new ItemStack(p_150895_1_, 1, i);
             p_150895_3_.add(item);
+            }
+        }
         }
 
     }
@@ -140,19 +145,23 @@ public class ItemBlockFluidCrafter extends ItemBlock {
 
     @Override
     public void addInformation(ItemStack itemstack, EntityPlayer par1EntityPlayer, List list, boolean flag) {
-
+        if (list !=null) {
         String name = "None";
         int amount = 0;
 
-        if (itemstack.getItemDamage() != 0) {
-            name = FluidRegistry.getFluid(itemstack.getItemDamage()).getLocalizedName();
+        if (itemstack !=null && itemstack.getItemDamage() != 0) {
+            Fluid fluid = FluidRegistry.getFluid(itemstack.getItemDamage());
+            if (fluid != null) {
+            name = fluid.getLocalizedName();
             amount = 1000;
+            }
         }
 
         NumberFormat nfNum = NumberFormat.getNumberInstance();
 
         list.add("Name" + " : " + name);
         list.add("Amount" + " : " + nfNum.format(amount) + " / " + nfNum.format(1000) + " mB");
+        }
 
     }
 }

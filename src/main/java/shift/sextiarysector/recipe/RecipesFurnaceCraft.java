@@ -304,7 +304,7 @@ public class RecipesFurnaceCraft {
 
     public static void addVanillaRecipes() {
 
-        for (Map.Entry<ItemStack, ItemStack> e : ((HashMap<ItemStack, ItemStack>) FurnaceRecipes.smelting().getSmeltingList()).entrySet()) {
+        for (Map.Entry<ItemStack, ItemStack> e : ((Map<ItemStack, ItemStack>) FurnaceRecipes.smelting().getSmeltingList()).entrySet()) {
 
             try {
 
